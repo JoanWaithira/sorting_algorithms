@@ -20,7 +20,8 @@ typedef struct listint_s
 	struct listint_s *prev;
 	struct listint_s *next;
 } listint_t;
-
+void cocktail_sort_list(listint_t **list);
+void swap_nodes(listint_t *a, listint_t *b);
 void shell_sort(int *array, size_t size);
 int lomuto_partition(int *array, int low, int high, size_t size);
 void quick_sort_recursive(int *array, int low, int high, size_t size);
