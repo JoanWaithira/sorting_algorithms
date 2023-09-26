@@ -7,30 +7,30 @@
 void selection_sort(int *array, size_t size)
 {
 	int temp;
-	size_t i = 0;
+	size_t i;
 	size_t j;
-	size_t min_idx;
-
-	min_idx = i;
+	int *min;
 
 	if (array == NULL || size < 2)
 	{
 		return;
 	}
 
-	for (; i < size - 1; i++)
+	for (i = 0; i < size - 1; i++)
 	{
+		min = array + i;
+
 		for (j = i + 1; j < size; j++)
 		{
-			if (array[j] < array[min_idx])
+			if (array[j] < *min)
 			{
-				min_idx = j;
+				min = array + j;
 			}
-			if (min_idx != i)
+			if (min != array + i)
 			{
 				temp = array[i];
-				array[i] = array[min_idx];
-				array[min_idx] = temp;
+				array[i] = *min;
+				*min = temp;
 				print_array(array, size);
 			}
 		}
